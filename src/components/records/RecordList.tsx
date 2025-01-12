@@ -1,15 +1,18 @@
 import React from "react";
 import RecordItem from "./RecordItem";
+import { Record } from "../../types/record";
 
-function RecordList({ records }) {
+interface Props {
+  records: Record[];
+}
+
+function RecordList({ records }: Props) {
   //   console.log(records);
   return (
-    <table className="bg-gray-200 table-fixed">
+    <table className="bg-gray-200 table-fixed border-separate px-2">
       <thead>
-        <tr className="text-black">
-          <th className="border-2" scope="col">
-            VIN
-          </th>
+        <tr className="text-xl text-black text-left">
+          <th scope="col">VIN</th>
           <th scope="col">Make</th>
           <th scope="col">Model</th>
           <th scope="col">Year</th>
@@ -22,7 +25,7 @@ function RecordList({ records }) {
         </tr>
       </thead>
       <tbody>
-        {records.map((record) => (
+        {records.map((record: Record) => (
           <RecordItem key={record.id} record={record} />
         ))}
       </tbody>

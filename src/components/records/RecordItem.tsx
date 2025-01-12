@@ -1,18 +1,24 @@
 import React from "react";
+import { Record } from "../../types/record";
 
-function RecordItem() {
+interface Props {
+  record: Record;
+}
+
+function RecordItem({ record }: Props) {
+  console.log(record.vin);
   return (
-    <tr className="text-stone-800">
-      <th>VIN</th>
-      <th>Make</th>
-      <th>Model</th>
-      <th>A</th>
-      <th>B</th>
-      <th>C</th>
-      <th>D</th>
-      <th>E</th>
-      <th>F</th>
-      <th>G</th>
+    <tr className="text-stone-700 text-left">
+      <th>{record.vin}</th>
+      <th>{record.make}</th>
+      <th>{record.model}</th>
+      <th>{record.year}</th>
+      <th>{record.owner}</th>
+      <th>{record.license}</th>
+      <th>{record.mileage}</th>
+      <th>{record.service}</th>
+      <th>{record.charge}</th>
+      <th>{new Date(record.date).toDateString()}</th>
     </tr>
   );
 }

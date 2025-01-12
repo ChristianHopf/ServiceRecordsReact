@@ -1,5 +1,7 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
+import RecordList from "./components/records/RecordList";
+import { fetchRecords } from "./util/api";
 
 function App() {
   const [records, setRecords] = useState([]);
@@ -16,14 +18,14 @@ function App() {
     <>
       <main>
         <header className="p-8">
-          <h1 className="text-xl font-semibold">Service Records</h1>
+          <h1 className="text-2xl font-semibold">Service Records</h1>
         </header>
         <section className="flex flex-row lg:flex-col">
-          <RecordList records={records}/>
+          <RecordList records={records} />
         </section>
       </main>
     </>
   );
 }
 
-export default App
+export default App;
